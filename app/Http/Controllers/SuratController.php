@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JenisSurat;
 use App\Models\jenisSurat as ModelsJenisSurat;
+use App\Models\SuratKeluar;
 use Illuminate\Http\Request;
 use App\Models\SuratMasuk;
 use App\Models\User;
@@ -19,9 +20,11 @@ class SuratController extends Controller
     //View Halaman Utama
     public function index()
     {
+        $keluar = SuratKeluar::count();
         $suratMasuk = SuratMasuk::count();
         $user = User::count();
-        return view("index", compact('suratMasuk'), compact('user'));
+
+        return view("index", compact('keluar'),compact('suratMasuk') );
     }
 
 }

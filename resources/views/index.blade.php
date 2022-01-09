@@ -52,7 +52,7 @@
                         <h4 class="font-weight-normal mb-3">Surat Keluar<i
                                 class="mdi mdi-email-outline mdi-24px float-right"></i>
                         </h4>
-                        <h2 class="mb-5">{{$suratMasuk}}</h2>
+                        <h2 class="mb-5">{{$keluar}}</h2>
                         <a href="#" class="text-decoration-none text-white">
                             <h6 class="card-text">View Detail </h6>
                         </a>
@@ -66,7 +66,7 @@
                             alt="circle-image" />
                         <h4 class="font-weight-normal mb-3">Users <i class="mdi mdi-account mdi-24px float-right"></i>
                         </h4>
-                        <h2 class="mb-5"> {{$user}} </h2>
+                        <h2 class="mb-5"></h2>
                         <a href="#" class="text-decoration-none text-white">
                             <h6 class="card-text">View Detail </h6>
                         </a>
