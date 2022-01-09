@@ -28,16 +28,25 @@
                             <label for="exampleInputEmail3">Nomor Surat</label>
                             <input type="text" name="noSmasuk" class="form-control" id="exampleInputEmail3"
                                 placeholder="Nomor Surat" value="{{ $data->noSmasuk }}">
+                            @error('noSmasuk')
+                                <p class="text-danger pt-1"><small> {{ $message }}</small></p>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword4">Tanggal Surat</label>
                             <input type="date" name="tglMasuk" class="form-control" id="exampleInputPassword4"
                                 placeholder="Tanggal Surat" value="{{ $data->tglMasuk }}">
+                            @error('tglMasuk')
+                                <p class="text-danger pt-1"><small> {{ $message }}</small></p>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputCity1">Pengirim</label>
                             <input type="text" name="pengirim" class="form-control" id="exampleInputCity1"
                                 placeholder="Pengirim" value="{{ $data->pengirim }}">
+                            @error('pengirim')
+                                <p class="text-danger pt-1"><small> {{ $message }}</small></p>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Perihal</label>
@@ -48,20 +57,27 @@
                                     <option value="{{ $x->id }}">{{ $x->keterangan }}</option>
                                 @endforeach
                             </select>
+                            @error('jenisSurat_id')
+                                <p class="text-danger pt-1"><small> {{ $message }}</small></p>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label>File upload</label>
                             <input type="file" name="file" class="file-upload-default">
                             <input type="hidden" name="pathFile" value="{{ $data->file }}">
                             <div class="input-group col-xs-12">
-                                <input type="text" class="form-control file-upload-info" disabled placeholder="{{ $data->file }}">
+                                <input type="text" class="form-control file-upload-info" disabled
+                                    placeholder="{{ $data->file }}">
                                 <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-gradient-primary"
                                         type="button">Upload</button>
                                 </span>
                             </div>
+                            @error('file')
+                                <p class="text-danger pt-1"><small> {{ $message }}</small></p>
+                            @enderror
                             <!-- <img src="{{ url('/' . $data->file) }}" width="100px" height="auto" alt="gambar"
-                                    class="mt-3"> -->
+                                                        class="mt-3"> -->
                         </div>
                         <button type="submit" class="btn btn-gradient-primary mr-2">Edit Surat</button>
                         <a href="/view-sm" class="btn btn-light">Cancel</a>

@@ -53,8 +53,7 @@ class SuratMasukController extends Controller
                 'tglMasuk' => $x->tglMasuk,
                 'pengirim' => $x->pengirim,
                 'jenisSurat_id' => $x->jenisSurat_id,
-                $cekValidasi
-            ]);
+            ],$cekValidasi);
         } else {
             $nama_file = time() . "-" . $file->getClientOriginalName();
             $ekstensi = $file->getClientOriginalExtension();
@@ -70,8 +69,7 @@ class SuratMasukController extends Controller
                 'pengirim' => $x->pengirim,
                 'jenisSurat_id' => $x->jenisSurat_id,
                 'file' => $pathPublic,
-                $cekValidasi
-            ]);
+            ],$cekValidasi);
         }
         return redirect('/view-sm')->with('toast_success', 'Data berhasil tambah!');
     }
@@ -91,7 +89,7 @@ class SuratMasukController extends Controller
             'tglMasuk.required' => 'Tanggal surat tidak boleh kosong!',
             'pengirim.required' => 'Pengirim tidak boleh kosong!',
             'jenisSurat_id.required' => 'Perihal tidak boleh kosong!',
-            'file.required' => 'File surat tidak boleh kosong!',
+            //'file.required' => 'File surat tidak boleh kosong!',
             'file.mimes' => 'File harus berupa file dengan tipe: pdf dengan ukuran max: 2048',
         ];
         $cekValidasi = $x->validate([
@@ -99,7 +97,7 @@ class SuratMasukController extends Controller
             'tglMasuk' => 'required',
             'pengirim' => 'required',
             'jenisSurat_id' => 'required',
-            'file' => 'required|mimes:pdf|max:2048'
+            'file' => 'mimes:pdf|max:2048'
         ], $messages);
 
         $file = $x->file('file');
@@ -120,8 +118,8 @@ class SuratMasukController extends Controller
             'pengirim' => $x->pengirim,
             'jenisSurat_id' => $x->jenisSurat_id,
             'file' => $path,
-            $cekValidasi
-        ]);
+          
+        ], $cekValidasi);
         return redirect('/view-sm')->with('toast_success', 'Data berhasil di update!');
     }
 
@@ -134,4 +132,5 @@ class SuratMasukController extends Controller
 
         return redirect('/view-sm')->with('toast_success', 'Data berhasil di hapus!');
     }
+    
 }
