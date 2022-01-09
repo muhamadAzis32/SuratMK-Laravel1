@@ -22,12 +22,18 @@
                         <div class="form-group">
                             <label for="exampleInputEmail3">Kode Jenis Surat</label>
                             <input name="kodeSurat" type="text" class="form-control" id="exampleInputEmail3"
-                                placeholder="Kode Surat">
+                                placeholder="Kode Surat" value="{{ old('kodeSurat') }}">
+                            @error('kodeSurat')
+                                <p class="text-danger pt-1"><small> {{ $message }}</small></p>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword4">Keterangan</label>
                             <input name="keterangan" type="text" class="form-control" id="exampleInputPassword4"
-                                placeholder="Keterangan">
+                                placeholder="Keterangan" value="{{ old('keterangan') }}">
+                            @error('keterangan')
+                                <p class="text-danger pt-1"><small> {{ $message }}</small></p>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-gradient-primary mr-2">Tambah
                             Surat</button>

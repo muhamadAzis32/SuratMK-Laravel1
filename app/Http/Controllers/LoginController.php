@@ -8,19 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    //Tampilan Login
-    public function viewLogin(){
-        return view('login');
-    }
-
     //Proses login
-    public function login(Request $a){
+    public function login(Request $a)
+    {
         $cek = $a->validate([
             'email' => 'required|email:dns',
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($cek)){
+        if (Auth::attempt($cek)) {
             $a->session()->regenerate();
             return redirect()->intended('/surat');
         }
@@ -29,7 +25,8 @@ class LoginController extends Controller
     }
 
     //logout
-    public function logout(Request $a){
+    public function logout(Request $a)
+    {
         Auth::logout();
         $a->session()->invalidate();
         $a->session()->regenerateToken();
@@ -39,19 +36,24 @@ class LoginController extends Controller
     /*
     * DATA USER
     */
-
+    //View Login
+    public function viewLogin()
+    {
+        return view("login");
+    }
     /*view data user */
     public function viewUser()
     {
         $dataUsr = User::all();
-        return view("user.view-user", ['data'=> $dataUsr]);
+        return view("user.view-user", ['data' => $dataUsr]);
     }
     //input data user
     public function inputUser()
     {
         return view("user.input-user");
     }
-    public function saveUser(Request $x){
+    public function saveUser(Request $x)
+    {
         $file = $x->file('image');
         if (empty($file)) {
             User::create([
@@ -82,6 +84,4 @@ class LoginController extends Controller
     {
         return view("user.edit-user");
     }
-
 }
-

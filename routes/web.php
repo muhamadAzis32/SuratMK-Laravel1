@@ -3,7 +3,9 @@
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\JenisSuratController;
 use App\Http\Controllers\SuratMasukController;
+use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\LoginController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,10 +23,13 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+
 Route::get('/main', [SuratController::class, 'main']);
 Route::get('/surat', [SuratController::class, 'index'])->middleware('auth');
 //Route::get('/login', [SuratController::class, 'viewLogin']);
 
+
+//Surat Masuk
 Route::get('/view-sm', [SuratMasukController::class, 'viewSm']);
 Route::get('/input-sm', [SuratMasukController::class, 'inputSm']);
 Route::post('/save-sm', [SuratMasukController::class, 'saveSm']);
@@ -33,10 +38,15 @@ Route::post('/update-sm/{id}', [SuratMasukController::class, 'updateSm']);
 Route::get('/hapus-sm/{id}', [SuratMasukController::class, 'hapusSm']);
 
 
-Route::get('/view-sk', [SuratController::class, 'viewSk']);
-Route::get('/input-sk', [SuratController::class, 'inputSk']);
-Route::get('/edit-sk', [SuratController::class, 'editSk']);
+//Surat Keluar
+Route::get('/view-sk', [SuratKeluarController::class, 'viewSk']);
+Route::get('/input-sk', [SuratKeluarController::class, 'inputSk']);
+Route::post('/save-sk', [SuratKeluarController::class, 'saveSk']);
+Route::get('/edit-sk/{id}', [SuratKeluarController::class, 'editSk']);
+Route::post('/update-sk/{id}', [SuratKeluarController::class, 'updateSk']);
+Route::get('/hapus-sk/{id}', [SuratKeluarController::class, 'hapusSk']);
 
+//Jenis surat
 Route::get('/view-jenis', [JenisSuratController::class, 'viewJenis']);
 Route::get('/input-jenis', [JenisSuratController::class, 'inputJenis']);
 Route::post('/save-jenis', [JenisSuratController::class, 'saveJenis']);

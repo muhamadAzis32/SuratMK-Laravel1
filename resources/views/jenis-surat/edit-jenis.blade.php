@@ -28,11 +28,17 @@
                             <label for="exampleInputEmail3">Kode Surat</label>
                             <input type="text" name="kodeSurat" class="form-control" id="exampleInputEmail3"
                                 placeholder="Kode Surat" value="{{ $data->kodeSurat }}">
+                            @error('kodeSurat')
+                                <p class="text-danger pt-1"><small> {{ $message }}</small></p>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword4">Keterangan</label>
                             <input type="text" name="keterangan" class="form-control" id="exampleInputPassword4"
                                 placeholder="Keterangan" value="{{ $data->keterangan }}">
+                            @error('keterangan')
+                                <p class="text-danger pt-1"><small> {{ $message }}</small></p>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-gradient-primary mr-2">Edit Surat</button>
                         <a href="/view-jenis" class="btn btn-light">Cancel</a>

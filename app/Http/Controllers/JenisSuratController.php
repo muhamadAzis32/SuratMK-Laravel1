@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\JenisSurat;
-use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
+use App\Models\SuratMasuk;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+
 
 class JenisSuratController extends Controller
 {
@@ -27,10 +28,20 @@ class JenisSuratController extends Controller
     }
     public function saveJenis(Request $x)
     {
+        //Validasi
+        $messages = [
+            'kodeSurat.required' => 'Kode Jenis Surat tidak boleh kosong!',
+            'keterangan.required' => 'Keterangan tidak boleh kosong!',
+        ];
+        $cekValidasi = $x->validate([
+            'kodeSurat' => 'required',
+            'keterangan' => 'required',
+        ], $messages);
+
         JenisSurat::create([
             'kodeSurat' => $x->kodeSurat,
             'keterangan' => $x->keterangan,
-        ]);
+        ], $cekValidasi);
         return redirect('/view-jenis')->with('toast_success', 'Data berhasil tambah!');
     }
 
@@ -42,17 +53,28 @@ class JenisSuratController extends Controller
     }
     public function updateJenis($idJenis, Request $x)
     {
+        //Validasi
+        $messages = [
+            'kodeSurat.required' => 'Kode Jenis Surat tidak boleh kosong!',
+            'keterangan.required' => 'Keterangan tidak boleh kosong!',
+        ];
+        $cekValidasi = $x->validate([
+            'kodeSurat' => 'required',
+            'keterangan' => 'required',
+        ], $messages);
+
         JenisSurat::where("id", "$idJenis")->update([
             'kodeSurat' => $x->kodeSurat,
             'keterangan' => $x->keterangan,
-        ]);
+        ], $cekValidasi);
         return redirect('/view-jenis')->with('toast_success', 'Data berhasil di update!');
     }
+    
     //Hapus jenis surat
-    public function hapusJenis($idJenis)
+    public function hapusJenis($id)
     {
         try {
-            JenisSurat::where('id', $idJenis)->delete();
+            JenisSurat::where('id', $id)->delete();
             return redirect('/view-jenis')->with('toast_success', 'Data berhasil di hapus!');
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/view-jenis')->with('toast_error', 'Data tidak bisa di hapus!');

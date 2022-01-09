@@ -23,28 +23,5 @@ class SuratController extends Controller
         $user = User::count();
         return view("index", compact('suratMasuk'), compact('user'));
     }
-    //View Login
-    public function viewLogin()
-    {
-        return view("login");
-    }
 
-    /*
-    * SURAT KELUAR
-    */
-    //view surat keluar
-    public function viewSk()
-    {
-        return view("surat-k.view-sk");
-    }
-    //Input surat keluar
-    public function inputSk()
-    {
-        return view("surat-k.input-sk");
-    }
-    //Edit surat keluar
-    public function editSk()
-    {
-        return view("surat-k.edit-sk");
-    }
 }
