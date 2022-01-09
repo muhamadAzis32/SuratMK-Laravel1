@@ -17,10 +17,9 @@ class JenisSuratController extends Controller
     public function viewJenis()
     {
         $dataJenis = JenisSurat::all();
-        $suratMasuk = SuratMasuk::first();
-
-        return view("jenis-surat.view-jenis", ['data' => $dataJenis], ['dt2'=> $suratMasuk]);
+        return view("jenis-surat.view-jenis", ['data' => $dataJenis]);
     }
+
     //tambah jenis surat
     public function inputJenis()
     {
@@ -32,8 +31,9 @@ class JenisSuratController extends Controller
             'kodeSurat' => $x->kodeSurat,
             'keterangan' => $x->keterangan,
         ]);
-        return redirect('/view-jenis');
+        return redirect('/view-jenis')->with('toast_success', 'Data berhasil tambah!');
     }
+
     //edit jenis surat
     public function editJenis($idJenis)
     {
@@ -46,13 +46,16 @@ class JenisSuratController extends Controller
             'kodeSurat' => $x->kodeSurat,
             'keterangan' => $x->keterangan,
         ]);
-        return redirect('/view-jenis');
+        return redirect('/view-jenis')->with('toast_success', 'Data berhasil di update!');
     }
     //Hapus jenis surat
     public function hapusJenis($idJenis)
     {
-        JenisSurat::where('id', $idJenis)->delete();
-        return redirect('/view-jenis');
+        try {
+            JenisSurat::where('id', $idJenis)->delete();
+            return redirect('/view-jenis')->with('toast_success', 'Data berhasil di hapus!');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect('/view-jenis')->with('toast_error', 'Data tidak bisa di hapus!');
+        }
     }
-
 }

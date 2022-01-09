@@ -15,15 +15,14 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Jenis Surat</h4>
-                    <!--<p>{{ $dt2->pengirim }}</p>-->
                     <table id="example1" class="table table-bordered">
                         <thead>
                             <tr>
-                                <th> # </th>
+                                <th class="col-md-1"> # </th>
                                 <th> Kode Surat </th>
                                 <th> Keterangan </th>
-                                <th> Jumlah Surat </th>
-                                <th> Action</th>
+                               <!-- <th> Jumlah Surat </th> -->
+                                <th class="col-md-1"> Action</th>
                             </tr>
                         </thead>
 
@@ -33,14 +32,16 @@
                                 <td>{{ $x->id }}</td>
                                 <td>{{ $x->kodeSurat }}</td>
                                 <td>{{ $x->keterangan }}</td>
-                                <td>{{ $x->jumlahSurat }}</td>
+                              <!--td>{{ $x->jumlahSurat }}</td> -->
                                 <td>
-                                    <a href="/edit-jenis/{{ $x->id }}" class="btn-sm btn-inverse-dark btn-rounded m-lg-1">
-                                        <i class="mdi mdi-pencil"></i>
+                                    <a type="button" href="/edit-jenis/{{ $x->id }}"
+                                        class="btn-sm btn-inverse-dark btn-rounded m-lg-1" data-toggle="tooltip"
+                                        data-placement="top" title="Edit">
+                                        <i class="mdi mdi-border-color"></i>
                                     </a>
                                     <a href="/hapus-jenis/{{ $x->id }}" class="btn-sm btn-inverse-danger btn-rounded m-lg-1">
                                         <i class="mdi mdi-delete"></i>
-                                    </a>
+                                    </a>                           
                                 </td>
                             </tr>
                             @endforeach
@@ -50,4 +51,7 @@
             </div>
         </div>
     </div>
+
+       <!--Digunakan untuk alert-->
+    @include('sweetalert::alert')
 @endsection

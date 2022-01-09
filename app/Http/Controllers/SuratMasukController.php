@@ -53,7 +53,7 @@ class SuratMasukController extends Controller
                 'tglMasuk' => $x->tglMasuk,
                 'pengirim' => $x->pengirim,
                 'jenisSurat_id' => $x->jenisSurat_id,
-            ],$cekValidasi);
+            ], $cekValidasi);
         } else {
             $nama_file = time() . "-" . $file->getClientOriginalName();
             $ekstensi = $file->getClientOriginalExtension();
@@ -69,7 +69,7 @@ class SuratMasukController extends Controller
                 'pengirim' => $x->pengirim,
                 'jenisSurat_id' => $x->jenisSurat_id,
                 'file' => $pathPublic,
-            ],$cekValidasi);
+            ], $cekValidasi);
         }
         return redirect('/view-sm')->with('toast_success', 'Data berhasil tambah!');
     }
@@ -118,7 +118,7 @@ class SuratMasukController extends Controller
             'pengirim' => $x->pengirim,
             'jenisSurat_id' => $x->jenisSurat_id,
             'file' => $path,
-          
+
         ], $cekValidasi);
         return redirect('/view-sm')->with('toast_success', 'Data berhasil di update!');
     }
@@ -126,11 +126,14 @@ class SuratMasukController extends Controller
     //hapus surat masuk
     public function hapusSm($idSmasuk)
     {
-        $data = SuratMasuk::where('id', $idSmasuk)->first();
-        File::delete($data->file);
-        SuratMasuk::where('id', $idSmasuk)->delete();
-
-        return redirect('/view-sm')->with('toast_success', 'Data berhasil di hapus!');
+        try {
+            $data = SuratMasuk::where('id', $idSmasuk)->first();
+            File::delete($data->file);
+            SuratMasuk::where('id', $idSmasuk)->delete();
+            return redirect('/view-sm')->with('toast_success', 'Data berhasil di hapus!');
+            
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect('/view-sm')->with('toast_error', 'Data tidak bisa di hapus!');
+        }
     }
-    
 }
