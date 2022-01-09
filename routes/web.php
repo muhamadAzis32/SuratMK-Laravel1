@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SuratController;
+use App\Http\Controllers\JenisSuratController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -36,12 +37,12 @@ Route::get('/view-sk', [SuratController::class, 'viewSk']);
 Route::get('/input-sk', [SuratController::class, 'inputSk']);
 Route::get('/edit-sk', [SuratController::class, 'editSk']);
 
-Route::get('/view-jenis', [SuratController::class, 'viewJenis']);
-Route::get('/input-jenis', [SuratController::class, 'inputJenis']);
-Route::post('/save-jenis', [SuratController::class, 'saveJenis']);
-Route::get('/edit-jenis/{id}', [SuratController::class, 'editJenis']);
-Route::post('/update-jenis/{id}', [SuratController::class, 'updateJenis']);
-Route::get('/hapus-jenis/{id}', [SuratController::class, 'hapusJenis']);
+Route::get('/view-jenis', [JenisSuratController::class, 'viewJenis']);
+Route::get('/input-jenis', [JenisSuratController::class, 'inputJenis']);
+Route::post('/save-jenis', [JenisSuratController::class, 'saveJenis']);
+Route::get('/edit-jenis/{id}', [JenisSuratController::class, 'editJenis']);
+Route::post('/update-jenis/{id}', [JenisSuratController::class, 'updateJenis']);
+Route::get('/hapus-jenis/{id}', [JenisSuratController::class, 'hapusJenis']);
 
 
 //Login

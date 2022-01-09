@@ -35,7 +35,7 @@
                                 placeholder="Keterangan" value="{{ $data->keterangan }}">
                         </div>
                         <button type="submit" class="btn btn-gradient-primary mr-2">Edit Surat</button>
-                        <a href="view-jenis" class="btn btn-light">Cancel</a>
+                        <a href="/view-jenis" class="btn btn-light">Cancel</a>
                     </form>
                 </div>
             </div>

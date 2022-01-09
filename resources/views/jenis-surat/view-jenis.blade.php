@@ -15,6 +15,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Jenis Surat</h4>
+                    <!--<p>{{ $dt2->pengirim }}</p>-->
                     <table id="example1" class="table table-bordered">
                         <thead>
                             <tr>
