@@ -34,14 +34,16 @@ Route::get('/view-user', [LoginController::class, 'viewUser']);
 Route::get('/input-user', [LoginController::class, 'inputUser']);
 Route::post('/save-user', [LoginController::class, 'saveUser']);
 Route::get('/edit-user', [LoginController::class, 'editUser']);
+Route::get('/hapus-user/{id}', [LoginController::class, 'hapusUser']);
 
-
-
-Route::get('/main', [SuratController::class, 'main'])->middleware('auth');
 Route::get('/surat', [SuratController::class, 'index']);
 
 //Akses level user 
 Route::group(['middleware' => ['auth', 'cekLevel:admin,user']], function () {
+
+    Route::get('/main', [SuratController::class, 'main']);
+
+
     //Surat Masuk
     Route::get('/view-sm', [SuratMasukController::class, 'viewSm']);
     Route::get('/input-sm', [SuratMasukController::class, 'inputSm']);

@@ -36,12 +36,22 @@
                             <form method="POST" action="/login" class="pt-3">
                                 @csrf
                                 <div class="form-group">
-                                    <input name="email" type="email" class="form-control form-control-lg"
+                                    <input name="email" type="email" class="form-control form-control-lg  @error('email') is-invalid @enderror"
                                         id="exampleInputEmail1" placeholder="Email" value="{{ old('email') }}">
+                                    @error('email')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <input name="password" type="password" class="form-control form-control-lg"
+                                    <input name="password" type="password" class="form-control form-control-lg  @error('password') is-invalid @enderror"
                                         id="exampleInputPassword1" placeholder="Password">
+                                    @error('password')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="mt-3">
                                     <input type="submit" value="Login"
@@ -58,7 +68,8 @@
         <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-
+    <!--Digunakan untuk alert-->
+    @include('sweetalert::alert')
     <!-- plugins:js -->
     <script src="{{ asset('thema/assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->

@@ -6,7 +6,7 @@
             <div class="col-12">
                 <span class="d-flex align-items-center purchase-popup">
                     @auth
-                        <p>Selamat datang {{auth()->user()->name}}</p>
+                        <p>Selamat datang {{ auth()->user()->name }}</p>
                     @endauth
                     <a href="https://www.bootstrapdash.com/product/purple-bootstrap-admin-template?utm_source=organic&utm_medium=banner&utm_campaign=free-preview"
                         target="_blank" class="btn download-button purchase-button ml-auto">Kelola surat</a>
@@ -37,7 +37,7 @@
                         <h4 class="font-weight-normal mb-3">Surat Masuk <i
                                 class="mdi mdi-email-open-outline mdi-24px float-right"></i>
                         </h4>
-                        <h2 class="mb-5"> {{$suratMasuk}} </h2>
+                        <h2 class="mb-5"> {{ $suratMasuk }} </h2>
                         <a href="#" class="text-decoration-none text-white">
                             <h6 class="card-text">View Detail </h6>
                         </a>
@@ -52,7 +52,7 @@
                         <h4 class="font-weight-normal mb-3">Surat Keluar<i
                                 class="mdi mdi-email-outline mdi-24px float-right"></i>
                         </h4>
-                        <h2 class="mb-5">{{$keluar}}</h2>
+                        <h2 class="mb-5">{{ $keluar }}</h2>
                         <a href="#" class="text-decoration-none text-white">
                             <h6 class="card-text">View Detail </h6>
                         </a>
@@ -78,4 +78,7 @@
 
     </div>
     <!-- content-wrapper ends -->
+    <!--Digunakan untuk alert-->
+    @include('sweetalert::alert')
+    
 @endsection
