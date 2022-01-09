@@ -23,6 +23,7 @@
                                 <th> Tanggal Surat </th>
                                 <th> Pengirim </th>
                                 <th> Perihal</th>
+                                <th class="col-md-1"> File </th>
                                 <th class="col-md-1"> Action</th>
                             </tr>
                         </thead>
@@ -34,6 +35,13 @@
                                     <td>{{ $x->tglMasuk }}</td>
                                     <td>{{ $x->pengirim }}</td>
                                     <td>{{ $x->jenisSurat['keterangan'] }}</td>
+                                    <td>
+                                        @empty($x->file)
+                                            <span class="badge badge-danger">Tidak ada</span>
+                                        @else
+                                            <span class="badge badge-success">Ada</span>
+                                        @endempty
+                                    </td>
                                     <!-- <td> <img src="{{ $x->file }}" width="100px" height="auto" alt="file"></td> -->
                                     <td>
 
@@ -49,10 +57,10 @@
                                         </a>
 
                                         <!--<a type="button" href="/hapus-sm/{{ $x->id }}"
-                                                                class="btn-sm btn-inverse-danger btn-rounded m-lg-1" data-toggle="tooltip"
-                                                                data-placement="top" title="Delete">
-                                                                <i class="mdi mdi-delete"></i>
-                                                            </a> -->
+                                                                        class="btn-sm btn-inverse-danger btn-rounded m-lg-1" data-toggle="tooltip"
+                                                                        data-placement="top" title="Delete">
+                                                                        <i class="mdi mdi-delete"></i>
+                                                                    </a> -->
 
                                         <a type="button" data-toggle="modal" data-target=".bd-example-modal-sm"
                                             class="btn-sm btn-inverse-danger btn-rounded m-lg-1" data-toggle="tooltip"

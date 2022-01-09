@@ -29,6 +29,23 @@ class SuratMasukController extends Controller
     }
     public function saveSm(Request $x)
     {
+        //Validasi
+        $messages = [
+            'noSmasuk.required' => 'Nomor surat tidak boleh kosong!',
+            'tglMasuk.required' => 'Tanggal surat tidak boleh kosong!',
+            'pengirim.required' => 'Pengirim tidak boleh kosong!',
+            'jenisSurat_id.required' => 'Perihal tidak boleh kosong!',
+            'file.required' => 'File surat tidak boleh kosong!',
+            'file.mimes' => 'File harus berupa file dengan tipe: pdf dengan ukuran max: 2048',
+        ];
+        $cekValidasi = $x->validate([
+            'noSmasuk' => 'required',
+            'tglMasuk' => 'required',
+            'pengirim' => 'required',
+            'jenisSurat_id' => 'required',
+            'file' => 'required|mimes:pdf|max:2048'
+        ], $messages);
+
         $file = $x->file('file');
         if (empty($file)) {
             SuratMasuk::create([
@@ -36,6 +53,7 @@ class SuratMasukController extends Controller
                 'tglMasuk' => $x->tglMasuk,
                 'pengirim' => $x->pengirim,
                 'jenisSurat_id' => $x->jenisSurat_id,
+                $cekValidasi
             ]);
         } else {
             $nama_file = time() . "-" . $file->getClientOriginalName();
@@ -52,6 +70,7 @@ class SuratMasukController extends Controller
                 'pengirim' => $x->pengirim,
                 'jenisSurat_id' => $x->jenisSurat_id,
                 'file' => $pathPublic,
+                $cekValidasi
             ]);
         }
         return redirect('/view-sm')->with('toast_success', 'Data berhasil tambah!');
@@ -66,6 +85,23 @@ class SuratMasukController extends Controller
     }
     public function updateSm($idSmasuk, Request $x)
     {
+        //Validasi
+        $messages = [
+            'noSmasuk.required' => 'Nomor surat tidak boleh kosong!',
+            'tglMasuk.required' => 'Tanggal surat tidak boleh kosong!',
+            'pengirim.required' => 'Pengirim tidak boleh kosong!',
+            'jenisSurat_id.required' => 'Perihal tidak boleh kosong!',
+            'file.required' => 'File surat tidak boleh kosong!',
+            'file.mimes' => 'File harus berupa file dengan tipe: pdf dengan ukuran max: 2048',
+        ];
+        $cekValidasi = $x->validate([
+            'noSmasuk' => 'required',
+            'tglMasuk' => 'required',
+            'pengirim' => 'required',
+            'jenisSurat_id' => 'required',
+            'file' => 'required|mimes:pdf|max:2048'
+        ], $messages);
+
         $file = $x->file('file');
         if (file_exists($file)) {
             $nama_file = time() . "-" . $file->getClientOriginalName();
@@ -84,6 +120,7 @@ class SuratMasukController extends Controller
             'pengirim' => $x->pengirim,
             'jenisSurat_id' => $x->jenisSurat_id,
             'file' => $path,
+            $cekValidasi
         ]);
         return redirect('/view-sm')->with('toast_success', 'Data berhasil di update!');
     }
@@ -97,6 +134,4 @@ class SuratMasukController extends Controller
 
         return redirect('/view-sm')->with('toast_success', 'Data berhasil di hapus!');
     }
-
-
 }
