@@ -124,12 +124,14 @@
                         </div>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/view-jenis">
-                            <span class="menu-title">Jenis Surat</span>
-                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                        </a>
-                    </li>
+                    @if (auth()->user()->level == 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="/view-jenis">
+                                <span class="menu-title">Jenis Surat</span>
+                                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                            </a>
+                        </li>
+                    @endif
 
                 </ul>
             </nav>
