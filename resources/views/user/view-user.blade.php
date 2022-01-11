@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-body" style="overflow-x:auto;">
                     <h4 class="card-title">Data User</h4>
-                    <div class="table-responsive-md">
+                    <div class="table-responsive">
                         <table id="example1" class="table table-bordered">
                             <thead>
                                 <tr>
@@ -56,8 +56,6 @@
                                                 data-placement="top" title="Delete">
                                                 <i class="mdi mdi-delete"></i>
                                             </a>
-                                        </td>
-                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -66,6 +64,13 @@
             </div>
         </div>
     </div>
+
+    <!-- Sweet Alert -->
+    <link href="{{ asset('/thema/assets/sweetAlert/sweetalert.css') }}" rel="stylesheet">
+    <!-- Sweet Alert -->
+    <script src="{{ asset('/thema/assets/sweetAlert/sweetalert.min.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!--Digunakan untuk alert-->
     @include('sweetalert::alert')
+
 @endsection

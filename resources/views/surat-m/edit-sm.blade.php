@@ -17,6 +17,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Edit Surat Masuk</h4>
                     <p class="card-description"></p>
+                    
                     <form method="POST" action="/update-sm/{{ $data->id }}" enctype="multipart/form-data"
                         class="forms-sample">
                         {{ csrf_field() }}

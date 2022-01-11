@@ -6,8 +6,10 @@
             <h3 class="page-title">Surat Masuk </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <a href="input-sm" type="button" class="btn btn-gradient-primary btn-icon-text btn-sm">
-                        <i class="mdi mdi mdi-plus btn-icon-prepend"></i>Tambah Surat</a>
+                    @if (auth()->user()->level == 'admin')
+                        <a href="input-sm" type="button" class="btn btn-gradient-primary btn-icon-text btn-sm">
+                            <i class="mdi mdi mdi-plus btn-icon-prepend"></i>Tambah Surat</a>
+                    @endif
                 </ol>
             </nav>
         </div>
@@ -51,18 +53,19 @@
                                                 data-placement="top" title="Download File">
                                                 <i class="mdi mdi-format-vertical-align-bottom"></i>
                                             </a>
-                                            <a type="button" href="/edit-sm/{{ $x->id }}"
-                                                class="btn-sm btn-inverse-dark btn-rounded m-lg-1" data-toggle="tooltip"
-                                                data-placement="top" title="Edit">
-                                                <i class="mdi mdi-border-color"></i>
-                                            </a>
 
-
-                                            <a type="button" data-toggle="modal" data-target=".bd-example-modal-sm"
-                                                class="btn-sm btn-inverse-danger btn-rounded m-lg-1" data-toggle="tooltip"
-                                                data-placement="top" title="Delete">
-                                                <i class="mdi mdi-delete"></i>
-                                            </a>
+                                            @if (auth()->user()->level == 'admin')
+                                                <a type="button" href="/edit-sm/{{ $x->id }}"
+                                                    class="btn-sm btn-inverse-dark btn-rounded m-lg-1" data-toggle="tooltip"
+                                                    data-placement="top" title="Edit">
+                                                    <i class="mdi mdi-border-color"></i>
+                                                </a>
+                                                <a type="button" data-toggle="modal" data-target=".bd-example-modal-sm"
+                                                    class="btn-sm btn-inverse-danger btn-rounded m-lg-1"
+                                                    data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <i class="mdi mdi-delete"></i>
+                                                </a>
+                                            @endif
 
                                             <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
                                                 aria-labelledby="mySmallModalLabel" aria-hidden="true">

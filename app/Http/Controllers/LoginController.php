@@ -112,12 +112,50 @@ class LoginController extends Controller
         }
         return redirect('/view-user')->with('toast_success', 'Data berhasil tambah!');
     }
+
     //edit data user
-    public function editUser()
+    public function editUser($idUser)
     {
-        return view("user.edit-user");
+        $dataUser = User::find($idUser);
+        return view("user.edit-user", ['data' => $dataUser]);
     }
-    
+
+    public function updateUser($idUser, Request $x)
+    {
+        //Validasi
+        $messages = [
+            'name.required' => 'Nama tidak boleh kosong!',
+            'email.required' => 'Email tidak boleh kosong!',
+            'level.required' => 'level user tidak boleh kosong!',
+            'image' => 'File harus berupa tipe: jpeg,png,jpg|max:2048'
+        ];
+        $cekValidasi = $x->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'level' => 'required',
+            'file' => 'file|image|mimes:jpeg,png,jpg|max:2048',
+        ], $messages);
+
+        $file = $x->file('file');
+        if (file_exists($file)) {
+            $nama_file = time() . "-" . $file->getClientOriginalName();
+            $folder = 'file';
+            $file->move($folder, $nama_file);
+            $path = $folder . "/" . $nama_file;
+            //delete
+            $data = User::where('id', $idUser)->first();
+            File::delete($data->file);
+        } else {
+            $path = $x->pathFile;
+        }
+        User::where("id", "$idUser")->update([
+            'name' => $x->name,
+            'email' => $x->email,
+            'level' => $x->level,
+            'file' => $path,
+        ]);
+        return redirect('/view-user')->with('toast_success', 'Data berhasil di update!');
+    }
 
 
     //hapus surat masuk

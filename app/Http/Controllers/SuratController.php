@@ -20,11 +20,13 @@ class SuratController extends Controller
     //View Halaman Utama
     public function index()
     {
+        $data2 = User::count();
         $keluar = SuratKeluar::count();
         $suratMasuk = SuratMasuk::count();
-        $user = User::count();
+        $data = [$data2, $keluar, $suratMasuk];
 
-        return view("index", compact('keluar'),compact('suratMasuk') );
+        return view("index",['data'=>$data] );
+        //return view("index", compact('keluar'),compact('data2')  );
     }
 
 }

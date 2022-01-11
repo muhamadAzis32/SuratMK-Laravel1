@@ -6,8 +6,10 @@
             <h3 class="page-title">Jenis Surat</h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <a href="input-jenis" type="button" class="btn btn-gradient-primary btn-icon-text btn-sm">
-                        <i class="mdi mdi mdi-plus btn-icon-prepend"></i>Tambah Surat</a>
+                    @if (auth()->user()->level == 'admin')
+                        <a href="input-jenis" type="button" class="btn btn-gradient-primary btn-icon-text btn-sm">
+                            <i class="mdi mdi mdi-plus btn-icon-prepend"></i>Tambah Surat</a>
+                    @endif
                 </ol>
             </nav>
         </div>
@@ -23,7 +25,9 @@
                                     <th> Kode Surat </th>
                                     <th> Keterangan </th>
                                     <!-- <th> Jumlah Surat </th> -->
-                                    <th class="col-md-1"> Action</th>
+                                    @if (auth()->user()->level == 'admin')
+                                        <th class="col-md-1"> Action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,20 +36,22 @@
                                         <td>{{ $x->id }}</td>
                                         <td>{{ $x->kodeSurat }}</td>
                                         <td>{{ $x->keterangan }}</td>
-                                        <td>
-                                            <a type="button" href="/edit-jenis/{{ $x->id }}"
-                                                class="btn-sm btn-inverse-dark btn-rounded m-lg-1" data-toggle="tooltip"
-                                                data-placement="top" title="Edit">
-                                                <i class="mdi mdi-border-color"></i>
-                                            </a>
+                                        @if (auth()->user()->level == 'admin')
+                                            <td>
+                                                <a type="button" href="/edit-jenis/{{ $x->id }}"
+                                                    class="btn-sm btn-inverse-dark btn-rounded m-lg-1" data-toggle="tooltip"
+                                                    data-placement="top" title="Edit">
+                                                    <i class="mdi mdi-border-color"></i>
+                                                </a>
 
-                                            <a type="button" href="/hapus-jenis/{{ $x->id }}"
-                                                onclick="return confirm('Apakah anda yakin menghapus data?')"
-                                                class="btn-sm btn-inverse-danger btn-rounded m-lg-1" data-toggle="tooltip"
-                                                data-placement="top" title="Delete">
-                                                <i class="mdi mdi-delete"></i>
-                                            </a>
-                                        </td>
+                                                <a type="button" href="/hapus-jenis/{{ $x->id }}"
+                                                    onclick="return confirm('Apakah anda yakin menghapus data?')"
+                                                    class="btn-sm btn-inverse-danger btn-rounded m-lg-1"
+                                                    data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <i class="mdi mdi-delete"></i>
+                                                </a>
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>
