@@ -25,9 +25,7 @@ Route::get('/welcome', function () {
 
 //Route::get('/login', [SuratController::class, 'viewLogin']);
 
-//Menu utama
-Route::get('/main', [SuratController::class, 'main']);
-Route::get('/surat', [SuratController::class, 'index']);
+
 
 //Login
 Route::get('/view-login', [LoginController::class, 'viewLogin'])->name('login')->middleware('guest');
@@ -37,6 +35,9 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 //Akses level admin dan user
 Route::group(['middleware' => ['auth', 'cekLevel:admin,user']], function () {
+    //Menu utama
+    Route::get('/main', [SuratController::class, 'main']);
+    Route::get('/surat', [SuratController::class, 'index']);
 
     //Surat Masuk
     Route::get('/view-sm', [SuratMasukController::class, 'viewSm']);

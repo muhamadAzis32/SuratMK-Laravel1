@@ -60,38 +60,13 @@
                                                     data-placement="top" title="Edit">
                                                     <i class="mdi mdi-border-color"></i>
                                                 </a>
-                                                <a type="button" data-toggle="modal" data-target=".bd-example-modal-sm"
+                                                <a type="button" href="/hapus-sk/{{ $x->id }}"
+                                                    onclick="return confirm('Apakah anda yakin menghapus data?')"
                                                     class="btn-sm btn-inverse-danger btn-rounded m-lg-1"
                                                     data-toggle="tooltip" data-placement="top" title="Delete">
                                                     <i class="mdi mdi-delete"></i>
                                                 </a>
                                             @endif
-
-                                            <div class="modal fade bd-example-modal-sm " tabindex="-1" role="dialog"
-                                                aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-sm">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Delete data</h5>
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <p>Jika anda yakin klik Delete!</p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <a type="button" href="/hapus-sk/{{ $x->id }}"
-                                                                class="btn-sm btn-primary text-decoration-none">Delete</a>
-                                                            <a type="button"
-                                                                class="btn-sm btn-secondary text-decoration-none"
-                                                                data-dismiss="modal">Close</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </td>
                                     </tr>
                                 @endforeach
