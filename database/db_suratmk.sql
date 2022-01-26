@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2022 at 05:07 AM
+-- Generation Time: Jan 26, 2022 at 04:21 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -55,10 +55,12 @@ CREATE TABLE `jenis_surat` (
 --
 
 INSERT INTO `jenis_surat` (`id`, `kodeSurat`, `keterangan`) VALUES
-(15, 'Sket', 'Surat keterangan'),
-(17, 'SU', 'Surat Undangan'),
-(18, 'Sper', 'Surat Permohonan'),
-(21, 'Sk', 'Surat Keterangan');
+(15, 'SK', 'Surat Keputusan'),
+(17, 'ST', 'Surat Tugas'),
+(18, 'S.Per', 'Surat Permohonan'),
+(23, 'Sket', 'Surat Keterangan'),
+(24, 'SP', 'Surat Peringatan'),
+(25, 'S.Pemb', 'Surat Pemberitahuan');
 
 -- --------------------------------------------------------
 
@@ -116,7 +118,8 @@ CREATE TABLE `surat_keluar` (
 --
 
 INSERT INTO `surat_keluar` (`id`, `noSkeluar`, `tglKeluar`, `tujuan`, `file`, `jenisSurat_id`) VALUES
-(6, '1', '2022-01-21', 'Guru', 'file/1641724397-9 Relationship.pdf', 18);
+(6, '078/S.Per/KADERISASI/MABIM/HMTRPL/PEI/XI/2021', '2022-01-21', 'kemahasiswaan', 'file/1641724397-9 Relationship.pdf', 18),
+(8, '082/S.Per/KADERISASI/MABIM/HMTRPL/PEI/XI/2021', '2022-01-26', 'Peserta', 'file/1643167065-2-3-6-PB.pdf', 18);
 
 -- --------------------------------------------------------
 
@@ -138,7 +141,8 @@ CREATE TABLE `surat_masuk` (
 --
 
 INSERT INTO `surat_masuk` (`id`, `noSmasuk`, `tglMasuk`, `pengirim`, `file`, `jenisSurat_id`) VALUES
-(39, 's.per/2021', '2022-01-12', 'Lord algi', 'file/1641813185-9 Relationship.pdf', 17);
+(39, '116/S.Per/KADERISASI/MABIM/HME/PEI/XII/2021', '2022-01-12', 'HME', 'file/1641813185-9 Relationship.pdf', 18),
+(41, '100/SU/MUBES/MABIM/HMTRPL/PEI/XII/2021', '2022-01-27', 'Algi', 'file/1643167182-9 Relationship.pdf', 24);
 
 -- --------------------------------------------------------
 
@@ -165,7 +169,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `level`, `file`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
 (54, 'Muhamad Azis', 'muhamadazis9a@gmail.com', '$2y$10$YD6o2I7yctvNr7uLxxLf..bCJlOqP/GrO0M4TkcxipSCkQLRAwxwK', 'admin', 'file/1641890829-3.jpg', NULL, NULL, NULL, NULL),
-(70, 'farid', 'farid@gmail.com', '$2y$10$cVsYXMCYMIzM7KH65TCoMOuoUpUS2BgUquXxwEBgsfZ6USNUCxf7u', 'user', 'file/1641892099-1.jpg', NULL, NULL, NULL, NULL);
+(70, 'farid', 'farid@gmail.com', '$2y$10$cVsYXMCYMIzM7KH65TCoMOuoUpUS2BgUquXxwEBgsfZ6USNUCxf7u', 'user', 'file/1641892099-1.jpg', NULL, NULL, NULL, NULL),
+(73, 'aaa', 'anisacell2433a@gmail.com', '$2y$10$YDVNDSjIuhbfgd.H1SQQJuOqUSuTuMHV43IMKSd48YLSoJ5lfjnES', 'user', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -232,7 +237,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `jenis_surat`
 --
 ALTER TABLE `jenis_surat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -244,19 +249,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `surat_masuk`
 --
 ALTER TABLE `surat_masuk`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- Constraints for dumped tables

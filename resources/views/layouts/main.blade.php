@@ -35,12 +35,13 @@
 
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <div class="navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href="/surat">
-                    <img src="{{ asset('thema/assets/images/logo.svg') }}" alt="logo" />
+                    <img src="{{ asset('thema/assets/images/logo-mini.svg') }}" alt="logo" />
                 </a>
-                <a class="navbar-brand brand-logo-mini" href="surat"><img
-                        src="{{ asset('thema/assets/images/logo-mini.svg') }}" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini text-center" href="surat">
+                    <img src="{{ asset('thema/assets/images/logo-mini.svg') }}" alt="logo" />
+                </a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -147,8 +148,8 @@
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
                     <div class="container-fluid clearfix">
-                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © TRPL
-                            2021</span>
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Muhamad Azis
+                            2022</span>
                     </div>
                 </footer>
                 <!-- partial -->

@@ -16,7 +16,7 @@ class LoginController extends Controller
     {
         //Validasi
         $messages = [
-            'email.required' => 'Kode Jenis Surat tidak boleh kosong!',
+            'email.required' => 'Email tidak boleh kosong!',
             'password.required' => 'Password tidak boleh kosong!',
         ];
         $cekValidasi = $a->validate([
