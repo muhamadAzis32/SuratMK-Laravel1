@@ -28,7 +28,7 @@ git clone https://github.com/muhamadAzis32/SuratMK-Laravel1.git
 ```
 
 ### Download ZIP
-[Link](https://codeload.github.com/muhamadAzis32/SuratMK-Laravel1/zip/refs/heads/main.zip)
+[Link](https://codeload.github.com/muhamadAzis32/SuratMK-Laravel1/zip/refs/heads/main)
 
 ### Setup Aplikasi
 Jalankan perintah 
