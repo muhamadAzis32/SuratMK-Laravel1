@@ -7,19 +7,19 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## Sistem informasi pengelolaan arsip surat masuk dan surat keluar berbasis web - [demo](https://youtu.be/32Fbvy55pds)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Sistem informasi ini bertujuan untuk meningkatkan efisiensi, ketepatan dan keamanan dokumen yang diarsipkan. Diharapkan dengan adanya sistem informasi pengarsipan ini, dapat merubah proses pengarsipan surat masuk dan surat keluar menjadi lebih efektif dan efisien. Dari masalah itu maka di buatlah Sistem Informasi Pengelolaan Arsip Surat Masuk Dan Surat Keluar Berbasis Web. 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![suratmasuk-keluar](https://user-images.githubusercontent.com/88225954/176642533-bd7c6527-c343-4b67-bccb-84c0396db320.jpg)
+![suratmasuk-keluar2](https://user-images.githubusercontent.com/88225954/176642968-fff28d69-6caf-4c44-9bfb-af50db72f8aa.jpg)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Fitur
+- Mengelola data user
+- Mengelola data surat masuk
+- Mengelola data surat keluar
+- Mengelola data jenis surat
+- Auth
 
 ## Instalasi
 #### Via Git
