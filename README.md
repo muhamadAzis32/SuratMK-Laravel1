@@ -7,19 +7,20 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Sistem informasi pengelolaan arsip surat masuk dan surat keluar berbasis web - [demo](https://youtu.be/32Fbvy55pds)
-
-Sistem informasi ini bertujuan untuk meningkatkan efisiensi, ketepatan dan keamanan dokumen yang diarsipkan. Diharapkan dengan adanya sistem informasi pengarsipan ini, dapat merubah proses pengarsipan surat masuk dan surat keluar menjadi lebih efektif dan efisien. Dari masalah itu maka di buatlah Sistem Informasi Pengelolaan Arsip Surat Masuk Dan Surat Keluar Berbasis Web. 
-
 ![suratmasuk-keluar](https://user-images.githubusercontent.com/88225954/176642533-bd7c6527-c343-4b67-bccb-84c0396db320.jpg)
 ![suratmasuk-keluar2](https://user-images.githubusercontent.com/88225954/176642968-fff28d69-6caf-4c44-9bfb-af50db72f8aa.jpg)
 
-## Fitur
+## Sistem informasi pengelolaan arsip surat masuk dan surat keluar berbasis web 
+
+Sistem informasi ini bertujuan untuk meningkatkan efisiensi, ketepatan dan keamanan dokumen yang diarsipkan. Diharapkan dengan adanya sistem informasi pengarsipan ini, dapat merubah proses pengarsipan surat masuk dan surat keluar menjadi lebih efektif dan efisien. Dari masalah itu maka di buatlah Sistem Informasi Pengelolaan Arsip Surat Masuk Dan Surat Keluar Berbasis Web. 
+
+### Feature
+- Login dan registrasi via form
 - Mengelola data user
 - Mengelola data surat masuk
 - Mengelola data surat keluar
 - Mengelola data jenis surat
-- Auth
+
 
 ## Instalasi
 #### Via Git
@@ -79,4 +80,22 @@ Seeder table User, Pengaturan
 php artisan db:seed
 ```
 -->
+
+### Built With
+- HTML
+- CSS
+- Javascript
+- Bootsrap
+- Php
+- Mysql
+
+
+### Demo
+For Demo of this template you can [Youtube](https://youtu.be/32Fbvy55pds)
+
+### Contact
+
+Muhamad Azis - [Linkedin](https://www.linkedin.com/in/muhamadazis32/) - muhamadazis9a@gmail.com
+
+Project Link : [https://github.com/muhamadAzis32/SuratMK-Laravel8](https://github.com/muhamadAzis32/SuratMK-Laravel8)
 
